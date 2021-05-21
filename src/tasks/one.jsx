@@ -5,7 +5,7 @@ const array1 = [
   ["Mohammed", "3", "20", "120", "developer"],
   ["John", "1", "21", "150", "designer"],
   ["Ali", "2", "23", "90", "doctor"],
-  ["Mariam", "4", "20", "100", "lawyer"]
+  ["Mariam", "4", "20", "100", "lawyer"],
 ];
 
 const array2 = [
@@ -14,21 +14,21 @@ const array2 = [
   ["John", "1", "45"],
   ["Mariam", "4", "43"],
   ["Mohammed", "3", "48"],
-  ["Tony", "5", "96"]
+  ["Tony", "5", "96"],
 ];
 
 const array3 = [
   ["name", "id", "parent"],
   ["Ali", "2", "yes"],
   ["John", "1", "yes"],
-  ["Tony", "5", "yes"]
+  ["Tony", "5", "yes"],
 ];
 
 const array4 = [
   ["name", "id", "hobby"],
   ["Mariam", "4", "video games"],
   ["Ali", "2", "kickboxing"],
-  ["Tony", "5", "football"]
+  ["Tony", "5", "football"],
 ];
 
 const array5 = [
@@ -37,7 +37,7 @@ const array5 = [
   ["2", "inactive"],
   ["3", "active"],
   ["4", "active"],
-  ["5", "active"]
+  ["5", "active"],
 ];
 
 /* 
@@ -48,6 +48,27 @@ const array5 = [
 */
 
 const ChallengeOne = () => {
+  const res = [
+    ...array1[0],
+    ...array2[0],
+    ...array3[0],
+    ...array4[0],
+    ...array5[0],
+  ];
+  console.table([Array.from(new Set(res))]);
+
+  const ress = [array1, array2, array3, array4, array5];
+
+  const groupedData = {};
+
+  ress.map(table => {
+    table.map(row => {
+      console.log("rowrowrow", row);
+    });
+  });
+
+  console.log("groupedData", groupedData);
+
   return (
     <>
       <BackToHome />

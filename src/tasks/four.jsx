@@ -1,13 +1,37 @@
 import { BackToHome } from "../App";
 import { MoonOutline, Moon } from "heroicons-react";
 import "./styles/_four.scss";
+import AuthContextProvider, { ThemeContext } from "../context/ThemeContext";
+import { useEffect } from "react";
+
+import { useContext } from "react";
 
 /* 
   Think: How we would use this Dark/Light mode switcher on other potential routes/components in a bigger application.
   Would your solution work for this?
 */
 
+const ChallengeFourWithContext = () => {
+  return (
+    <AuthContextProvider>
+      <ChallengeFour />
+    </AuthContextProvider>
+  );
+};
+
 const ChallengeFour = () => {
+  const {
+    theme: currentTheme,
+    toggleTheme,
+    light,
+    dark,
+  } = useContext(ThemeContext);
+
+  useEffect(() => {
+    const theme = currentTheme ? light : dark;
+    console.log("currentTheme", currentTheme, "theme", theme);
+  }, [currentTheme]);
+
   return (
     <div className="ch4">
       <BackToHome />
@@ -15,7 +39,7 @@ const ChallengeFour = () => {
         <div>
           <h1 className="title is-1 has-text-white">Challenge 4</h1>
         </div>
-        <button className="ch4__dark-mode-btn">
+        <button onClick={() => toggleTheme()} className="ch4__dark-mode-btn">
           <Moon fontSize={30} />
         </button>
       </div>
@@ -75,4 +99,4 @@ const ChallengeFour = () => {
   );
 };
 
-export default ChallengeFour;
+export default ChallengeFourWithContext;

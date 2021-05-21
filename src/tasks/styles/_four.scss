@@ -1,12 +1,20 @@
-.ch4{
+.ch4 {
   &__dark-mode-btn {
     border: 0;
     padding: 8px;
-    background-color: #FCE7F3;
-    color: #EC4899;
+    background-color: #fce7f3;
+    color: #ec4899;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     cursor: pointer;
   }
+}
+
+.light-div {
+  color: white;
+}
+
+.dark-div {
+  color: black;
 }
